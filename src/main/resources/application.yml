@@ -1,9 +1,7 @@
 spring :
   datasource :
-    driverClassName : org.mariadb.jdbc.Driver
-    url : jdbc:mariadb://localhost:3306/BelajarTesting
-    username : rizki
-    password : mufrizal
+    driverClassName : org.hsqldb.jdbcDriver
+    url : jdbc:hsqldb:databaseHSQLDB/BelajarTesting
 
   jpa :
     hibernate :
