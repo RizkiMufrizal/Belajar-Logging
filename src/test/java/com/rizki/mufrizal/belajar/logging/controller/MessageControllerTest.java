@@ -45,7 +45,7 @@ import com.rizki.mufrizal.belajar.logging.service.impl.MessageServiceImplTest;
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
-		DbUnitTestExecutionListener.class })
+        DbUnitTestExecutionListener.class })
 @DatabaseSetup("classpath:Message.xml")
 public class MessageControllerTest {
 
@@ -65,7 +65,7 @@ public class MessageControllerTest {
 	private WebApplicationContext webApplicationContext;
 
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(MessageServiceImplTest.class);
+	        .getLogger(MessageServiceImplTest.class);
 	static Message messageSave;
 	static Message messageUpdate;
 	static Message messageDelete;
@@ -76,7 +76,7 @@ public class MessageControllerTest {
 	public void setUp() throws Exception {
 
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(
-				this.webApplicationContext).build();
+		        this.webApplicationContext).build();
 		LOGGER.info("Set Up Mock MVC");
 
 		messageSave.setMessage("Hello");
@@ -100,15 +100,15 @@ public class MessageControllerTest {
 		messageDelete.setIdMessage(message.getIdMessage());
 
 		mockMvc.perform(
-				delete(
-						MessageController.API + MessageController.MESSAGE + "/"
-								+ messageDelete.getIdMessage()).contentType(
-						MediaType.APPLICATION_JSON).accept(
-						MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasKey("success")))
-				.andExpect(jsonPath("$", hasKey("info")))
-				.andExpect(jsonPath("success", is(Boolean.TRUE)))
-				.andExpect(jsonPath("info", is("Data Berhasil Di Hapus")));
+		        delete(
+		                MessageController.API + MessageController.MESSAGE + "/"
+		                        + messageDelete.getIdMessage()).contentType(
+		                MediaType.APPLICATION_JSON).accept(
+		                MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+		        .andExpect(jsonPath("$", hasKey("success")))
+		        .andExpect(jsonPath("$", hasKey("info")))
+		        .andExpect(jsonPath("success", is(Boolean.TRUE)))
+		        .andExpect(jsonPath("info", is("Data Berhasil Di Hapus")));
 
 		LOGGER.info("Delete Message");
 	}
@@ -116,25 +116,25 @@ public class MessageControllerTest {
 	@Test
 	public void testGetMessages() throws Exception {
 		mockMvc.perform(get(MessageController.API + MessageController.MESSAGE))
-				.andExpect(status().isOk())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-				.andExpect(jsonPath("$", hasSize(2)))
+		        .andExpect(status().isOk())
+		        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+		        .andExpect(jsonPath("$", hasSize(2)))
 
-				.andExpect(jsonPath("$[0].tujuan", is("rizki")))
-				.andExpect(jsonPath("$[0].message", is("coba")))
-				.andExpect(
-						jsonPath("$[0].tanggalMasuk", is(new SimpleDateFormat(
-								"yyyy-MM-dd").format(new SimpleDateFormat(
-								"dd/MM/yyyy").parse("1/1/2012")))))
-				.andExpect(jsonPath("$[0].idMessage", is("111")))
+		        .andExpect(jsonPath("$[0].tujuan", is("rizki")))
+		        .andExpect(jsonPath("$[0].message", is("coba")))
+		        .andExpect(
+		                jsonPath("$[0].tanggalMasuk", is(new SimpleDateFormat(
+		                        "yyyy-MM-dd").format(new SimpleDateFormat(
+		                        "dd/MM/yyyy").parse("1/1/2012")))))
+		        .andExpect(jsonPath("$[0].idMessage", is("111")))
 
-				.andExpect(jsonPath("$[1].tujuan", is("mufrizal")))
-				.andExpect(jsonPath("$[1].message", is("dicoba")))
-				.andExpect(
-						jsonPath("$[1].tanggalMasuk", is(new SimpleDateFormat(
-								"yyyy-MM-dd").format(new SimpleDateFormat(
-								"dd/MM/yyyy").parse("1/1/2012")))))
-				.andExpect(jsonPath("$[1].idMessage", is("222")));
+		        .andExpect(jsonPath("$[1].tujuan", is("mufrizal")))
+		        .andExpect(jsonPath("$[1].message", is("dicoba")))
+		        .andExpect(
+		                jsonPath("$[1].tanggalMasuk", is(new SimpleDateFormat(
+		                        "yyyy-MM-dd").format(new SimpleDateFormat(
+		                        "dd/MM/yyyy").parse("1/1/2012")))))
+		        .andExpect(jsonPath("$[1].idMessage", is("222")));
 
 		LOGGER.debug("Test Get List Message");
 	}
@@ -142,17 +142,17 @@ public class MessageControllerTest {
 	@Test
 	public void testSaveMessages() throws Exception {
 		mockMvc.perform(
-				post(MessageController.API + MessageController.MESSAGE)
-						.contentType(MediaType.APPLICATION_JSON)
-						.content(
-								new ObjectMapper()
-										.writeValueAsString(messageSave))
-						.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isCreated())
-				.andExpect(jsonPath("$", hasKey("success")))
-				.andExpect(jsonPath("$", hasKey("info")))
-				.andExpect(jsonPath("success", is(Boolean.TRUE)))
-				.andExpect(jsonPath("info", is("Data Berhasil Disimpan")));
+		        post(MessageController.API + MessageController.MESSAGE)
+		                .contentType(MediaType.APPLICATION_JSON)
+		                .content(
+		                        new ObjectMapper()
+		                                .writeValueAsString(messageSave))
+		                .accept(MediaType.APPLICATION_JSON))
+		        .andExpect(status().isCreated())
+		        .andExpect(jsonPath("$", hasKey("success")))
+		        .andExpect(jsonPath("$", hasKey("info")))
+		        .andExpect(jsonPath("success", is(Boolean.TRUE)))
+		        .andExpect(jsonPath("info", is("Data Berhasil Disimpan")));
 
 		LOGGER.info("Save Message");
 	}
@@ -165,17 +165,17 @@ public class MessageControllerTest {
 		messageUpdate.setIdMessage(message.getIdMessage());
 
 		mockMvc.perform(
-				put(MessageController.API + MessageController.MESSAGE)
-						.contentType(MediaType.APPLICATION_JSON)
-						.content(
-								new ObjectMapper()
-										.writeValueAsString(messageUpdate))
-						.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasKey("success")))
-				.andExpect(jsonPath("$", hasKey("info")))
-				.andExpect(jsonPath("success", is(Boolean.TRUE)))
-				.andExpect(jsonPath("info", is("Data Berhasil Di Edit")));
+		        put(MessageController.API + MessageController.MESSAGE)
+		                .contentType(MediaType.APPLICATION_JSON)
+		                .content(
+		                        new ObjectMapper()
+		                                .writeValueAsString(messageUpdate))
+		                .accept(MediaType.APPLICATION_JSON))
+		        .andExpect(status().isOk())
+		        .andExpect(jsonPath("$", hasKey("success")))
+		        .andExpect(jsonPath("$", hasKey("info")))
+		        .andExpect(jsonPath("success", is(Boolean.TRUE)))
+		        .andExpect(jsonPath("info", is("Data Berhasil Di Edit")));
 
 		LOGGER.info("Update Message");
 	}

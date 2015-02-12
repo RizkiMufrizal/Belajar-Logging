@@ -32,7 +32,7 @@ import com.rizki.mufrizal.belajar.logging.service.MessageService;
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
-		DbUnitTestExecutionListener.class })
+        DbUnitTestExecutionListener.class })
 @DatabaseSetup("classpath:Message.xml")
 public class MessageServiceImplTest {
 
@@ -49,7 +49,7 @@ public class MessageServiceImplTest {
 	private MessageService messageService;
 
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(MessageServiceImplTest.class);
+	        .getLogger(MessageServiceImplTest.class);
 	static Message messageSave;
 	static Message messageUpdate;
 
@@ -118,7 +118,7 @@ public class MessageServiceImplTest {
 		assertTrue(messageService.getMessages().size() == 3);
 
 		assertEquals("rizki mufrizal",
-				messageService.findByTanggalMasuk(new Date()).getTujuan());
+		        messageService.findByTanggalMasuk(new Date()).getTujuan());
 
 		LOGGER.debug("Save Data");
 	}
@@ -140,7 +140,7 @@ public class MessageServiceImplTest {
 		assertTrue(messageService.getMessages().size() == 3);
 
 		assertEquals("Word", messageService.findByTanggalMasuk(new Date())
-				.getMessage());
+		        .getMessage());
 
 		LOGGER.debug("Update Data");
 	}

@@ -22,7 +22,7 @@ public class MessageServiceImpl implements MessageService {
 	private MessageRepository messageRepository;
 
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(MessageServiceImpl.class);
+	        .getLogger(MessageServiceImpl.class);
 
 	@Transactional(readOnly = false)
 	@Override

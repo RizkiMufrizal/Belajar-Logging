@@ -33,7 +33,7 @@ public class MessageController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = MESSAGE_DELETE, method = RequestMethod.DELETE, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public Map<String, Object> deleteMessages(
-			@PathVariable("idMessage") String idMessage) {
+	        @PathVariable("idMessage") String idMessage) {
 
 		Message message = messageService.getMessage(idMessage);
 		messageService.delete(message);
