@@ -137,3 +137,6 @@ crashlytics-build.properties
 ### Log File ###
 *.log
 
+### Database Ignore ###
+databaseHSQLDB/
+
