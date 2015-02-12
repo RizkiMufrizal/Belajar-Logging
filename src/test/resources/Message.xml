@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <tb_message
+    	id_message="111"
+        tanggal_masuk="2012-1-1"
+        tujuan="rizki"
+        message="coba"
+    />
+
+    <tb_message
+    	id_message="222"
+        tanggal_masuk="2012-1-1"
+        tujuan="mufrizal"
+        message="dicoba"
+    />
+</dataset>
