@@ -20,11 +20,13 @@ untuk menjalankannya jalankan perintah berikut :
     
 aplikasi stand by pada `http://localhost:8888/BelajarLogging`
 
-untuk melihat testing aplikasi jalankan perintah berikut :
+untuk melakukan testing aplikasi jalankan perintah berikut :
 
     gradle clean build --debug
 
 hasil log terdapat di root project dengan nama file `LoggingAplikasi.log`
 
 untuk databasenya sendiri akan di generate dan akan terbentuk di root project dan
-berada di dalam folder `databaseHSQLDB`        
+berada di dalam folder `databaseHSQLDB`
+
+hasil testing terdapat di dalam folder build/reports/tests
