@@ -18,44 +18,44 @@ import com.rizki.mufrizal.belajar.logging.service.MessageService;
 @Transactional(readOnly = true)
 public class MessageServiceImpl implements MessageService {
 
-	@Resource
-	private MessageRepository messageRepository;
+    @Resource
+    private MessageRepository messageRepository;
 
-	private static final Logger LOGGER = LoggerFactory
-	        .getLogger(MessageServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(MessageServiceImpl.class);
 
-	@Transactional(readOnly = false)
-	@Override
-	public void delete(Message message) {
-		messageRepository.delete(message);
-	}
+    @Transactional(readOnly = false)
+    @Override
+    public void delete(Message message) {
+        messageRepository.delete(message);
+    }
 
-	@Override
-	public Message findByTanggalMasuk(Date date) {
-		return messageRepository.findBytanggalMasuk(date);
-	}
+    @Override
+    public Message findByTanggalMasuk(Date date) {
+        return messageRepository.findBytanggalMasuk(date);
+    }
 
-	@Override
-	public Message getMessage(String idMessage) {
-		return messageRepository.findOne(idMessage);
-	}
+    @Override
+    public Message getMessage(String idMessage) {
+        return messageRepository.findOne(idMessage);
+    }
 
-	@Override
-	public List<Message> getMessages() {
-		LOGGER.debug("get All Data Message");
-		return messageRepository.findAll();
-	}
+    @Override
+    public List<Message> getMessages() {
+        LOGGER.debug("get All Data Message");
+        return messageRepository.findAll();
+    }
 
-	@Transactional(readOnly = false)
-	@Override
-	public void save(Message message) {
-		messageRepository.save(message);
-	}
+    @Transactional(readOnly = false)
+    @Override
+    public void save(Message message) {
+        messageRepository.save(message);
+    }
 
-	@Transactional(readOnly = false)
-	@Override
-	public void update(Message message) {
-		messageRepository.saveAndFlush(message);
-	}
+    @Transactional(readOnly = false)
+    @Override
+    public void update(Message message) {
+        messageRepository.saveAndFlush(message);
+    }
 
 }

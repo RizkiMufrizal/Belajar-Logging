@@ -9,5 +9,5 @@ import com.rizki.mufrizal.belajar.logging.domain.Message;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, String> {
-	public Message findBytanggalMasuk(Date date);
+    public Message findBytanggalMasuk(Date date);
 }
